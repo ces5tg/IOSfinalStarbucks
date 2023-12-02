@@ -54,7 +54,7 @@ class insertarProductoViewController: UIViewController  , UIImagePickerControlle
                     var precio = self.txtCategoria.text!
                     var usuario = Auth.auth().currentUser
                     let snap = ["nombre": nombre , "categoria": categoria , "precio":precio , "imagenURL": urlImage]
-                    Database.database().reference().child("productos").child(usuario!.uid).childByAutoId().setValue(snap)
+                    Database.database().reference().child("productos").childByAutoId().setValue(snap)
                     self.performSegue(withIdentifier: "segueInsertarProductoRegresar", sender: nil)
                 })
                 
