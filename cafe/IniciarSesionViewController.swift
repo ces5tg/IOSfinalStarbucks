@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 class IniciarSesionViewController: UIViewController {
 
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
   

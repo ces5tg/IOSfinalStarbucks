@@ -37,17 +37,17 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
                 cell.textLabel?.text = " \(producto.nombre)"
                 cell.detailTextLabel?.text = " S/. \(producto.precio)"
                 print("zzz\(producto.imagenURL)")
-//                if let imageURL = URL(string: producto.imagenURL) {
-//                  
-//                    print("ddddd\(producto.imagenURL)")
-//                            DispatchQueue.global().async {
-//                                if let imageData = try? Data(contentsOf: imageURL) {
-//                                    DispatchQueue.main.async {
-//                                        cell.imageView?.image = UIImage(data: imageData)
-//                                    }
-//                                }
-//                            }
-//                        }
+                if let imageURL = URL(string: producto.imagenURL) {
+                  
+                    print("ddddd\(producto.imagenURL)")
+                            DispatchQueue.global().async {
+                                if let imageData = try? Data(contentsOf: imageURL) {
+                                    DispatchQueue.main.async {
+                                        cell.imageView?.image = UIImage(data: imageData)
+                                    }
+                                }
+                            }
+                        }
             }
         return cell
         
@@ -105,13 +105,53 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
         cargarDatos()
+        tableView.separatorStyle = .singleLineEtched
+        
                 
                 // Configurar el UISegmentedControl
         
         controlSegmento.addTarget(self, action: #selector(elegirSegmento(_:)), for: .valueChanged)
-        
-    
+        NotificationCenter.default.addObserver(self, selector: #selector(borrarSeleccionados(_:)), name: .borrarSeleccionados, object: nil)
+        //        let productosRef = Database.database().reference().child("productos")
+        //                productosRef.observe(.value){(snapshot) in
+        //            let producto = Productos()
+        //
+        //            producto.categoria = (snapshot.value as! NSDictionary)["categoria"] as! String
+        //            producto.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
+        //            producto.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
+        //            producto.precio = (snapshot.value as! NSDictionary)["precio"] as! String
+        //
+        //            self.productos.append(producto)
+        //            self.tableView.reloadData()
+        //                };
+        //
+        //====================================================
+        //        let productosRef = Database.database().reference().child("productos")
+        //        productosRef.observe(.value) { (snapshot) in
+        //            self.productos.removeAll() // Limpiar datos existentes
+        //
+        //
+        //            for child in snapshot.children {
+        //                if let childSnapshot = child as? DataSnapshot,
+        //                   let productoData = childSnapshot.value as? [String: Any] {
+        //                    let producto = Productos()
+        //
+        //                    producto.categoria = productoData["categoria"] as? String ?? ""
+        //                    producto.imagenURL = productoData["imagenURL"] as? String ?? ""
+        //                    producto.nombre = productoData["nombre"] as? String ?? ""
+        //                    producto.precio = productoData["precio"] as? String ?? ""
+        //
+        //                    self.productos.append(producto)
+        //                }
+        //            }
+        //
+        //            // Recargar la tabla después de obtener los datos
+        //            self.tableView.reloadData()
+        //        }
+        //=============================================================
+        // Do any additional setup after loading the view.
     }
     
     
@@ -141,14 +181,23 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
                 // Recargar la tabla después de obtener los datos
                 self.tableView.reloadData()
             }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
     }
-    */
+    deinit {
+            // Desinscribirse de la notificación
+            NotificationCenter.default.removeObserver(self)
+        }
+    @objc func borrarSeleccionados(_ notification: Notification) {
+        print("borrarSeleccionados ------- ")
+        if let productosSeleccionados = notification.userInfo?["productos"] as? [Productos] {
+            
+            self.productosSeleccionados = []
+            
+            
+            // Procesa la lista de productos seleccionados
+           
+            
+            // Puedes actualizar la interfaz de usuario o realizar otras acciones según sea necesario
+        }
     }
 }

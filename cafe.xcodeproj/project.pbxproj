@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131396712B1FF4D700A55735 /* listLocalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131396702B1FF4D700A55735 /* listLocalesViewController.swift */; };
+		131396732B1FF55900A55735 /* locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131396722B1FF55900A55735 /* locales.swift */; };
 		131E92D52B16B3840021E2B8 /* IniciarSesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131E92D42B16B3840021E2B8 /* IniciarSesionViewController.swift */; };
 		131E92D72B16BC990021E2B8 /* infoUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131E92D62B16BC990021E2B8 /* infoUserViewController.swift */; };
 		131E92DC2B16C0BB0021E2B8 /* insertarProductoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131E92DB2B16C0BB0021E2B8 /* insertarProductoViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		131396702B1FF4D700A55735 /* listLocalesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listLocalesViewController.swift; sourceTree = "<group>"; };
+		131396722B1FF55900A55735 /* locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locales.swift; sourceTree = "<group>"; };
 		131E92D42B16B3840021E2B8 /* IniciarSesionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniciarSesionViewController.swift; sourceTree = "<group>"; };
 		131E92D62B16BC990021E2B8 /* infoUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoUserViewController.swift; sourceTree = "<group>"; };
 		131E92DB2B16C0BB0021E2B8 /* insertarProductoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = insertarProductoViewController.swift; path = /Users/cesarpacho/Desktop/cafe/cafe/insertarProductoViewController.swift; sourceTree = "<absolute>"; };
@@ -80,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				131E92DB2B16C0BB0021E2B8 /* insertarProductoViewController.swift */,
+				131396702B1FF4D700A55735 /* listLocalesViewController.swift */,
+				131396722B1FF55900A55735 /* locales.swift */,
 				13E8F3812B168AFE005554EC /* AppDelegate.swift */,
 				13E8F3832B168AFE005554EC /* SceneDelegate.swift */,
 				13E8F3852B168AFE005554EC /* ViewController.swift */,
@@ -235,12 +241,14 @@
 				131E92D72B16BC990021E2B8 /* infoUserViewController.swift in Sources */,
 				13E8F3862B168AFE005554EC /* ViewController.swift in Sources */,
 				13898E6A2B1BD0B900A647AF /* detalleProductos.swift in Sources */,
+				131396712B1FF4D700A55735 /* listLocalesViewController.swift in Sources */,
 				13898E622B1A30CE00A647AF /* listProductsViewController.swift in Sources */,
 				131E92D52B16B3840021E2B8 /* IniciarSesionViewController.swift in Sources */,
 				13E8F3822B168AFE005554EC /* AppDelegate.swift in Sources */,
 				13898E642B1A322D00A647AF /* Productos.swift in Sources */,
 				131E92DC2B16C0BB0021E2B8 /* insertarProductoViewController.swift in Sources */,
 				13E8F3842B168AFE005554EC /* SceneDelegate.swift in Sources */,
+				131396732B1FF55900A55735 /* locales.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,8 @@ class insertarProductoViewController: UIViewController  , UIImagePickerControlle
     var imagePicker = UIImagePickerController()
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtCategoria: UITextField!
-    @IBOutlet var txtPrecio: UIView!
+  
+    @IBOutlet weak var txtPrecio: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
     
@@ -29,7 +30,7 @@ class insertarProductoViewController: UIViewController  , UIImagePickerControlle
     @IBAction func agregarProductoButton(_ sender: Any) {
         var urlImage = ""
         let imagesFolder = Storage.storage().reference().child("imagenes")
-        let dataImagen = imageView.image?.jpegData(compressionQuality: 0.5)
+        let dataImagen = imageView.image?.jpegData(compressionQuality: 0.1)
         let cargarImagen = imagesFolder.child("\(imagenID).jpg")
         cargarImagen.putData(dataImagen!, metadata: nil){
             (metadata , error ) in
@@ -51,11 +52,11 @@ class insertarProductoViewController: UIViewController  , UIImagePickerControlle
                     urlImage = url!.absoluteString
                     var nombre = self.txtNombre.text!
                     var categoria = self.txtCategoria.text!
-                    var precio = self.txtCategoria.text!
+                    var precio = self.txtPrecio.text!
                     var usuario = Auth.auth().currentUser
                     let snap = ["nombre": nombre , "categoria": categoria , "precio":precio , "imagenURL": urlImage]
                     Database.database().reference().child("productos").childByAutoId().setValue(snap)
-                    self.performSegue(withIdentifier: "segueInsertarProductoRegresar", sender: nil)
+//                    self.performSegue(withIdentifier: "segueInsertarProductoRegresar", sender: nil)
                 })
                 
             }

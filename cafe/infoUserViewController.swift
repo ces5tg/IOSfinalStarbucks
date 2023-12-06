@@ -13,7 +13,7 @@ class infoUserViewController: UIViewController {
     @IBOutlet weak var lblEmail: UILabel!
     @IBAction func AgregarProductoButton(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "segueInsertarProducto", sender: nil)
+        //self.performSegue(withIdentifier: "segueInsertarProducto", sender: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
