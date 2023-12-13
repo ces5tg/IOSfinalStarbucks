@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyBtnS3ZFTqUsE9ZGxmtERqB6CWp9nYv9P8</string>
+	<string>AIzaSyB1P7zZClLm-xvY9TEots4WOgbnZw9Wb_g</string>
 	<key>GCM_SENDER_ID</key>
-	<string>18606738063</string>
+	<string>664562847324</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>cesar.cafe</string>
 	<key>PROJECT_ID</key>
-	<string>cafe-b6f81</string>
+	<string>cafe-f4cee</string>
 	<key>STORAGE_BUCKET</key>
-	<string>cafe-b6f81.appspot.com</string>
+	<string>cafe-f4cee.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:18606738063:ios:498c3cfc63788851f67efa</string>
+	<string>1:664562847324:ios:0aa8e4196cb140acb1a099</string>
 </dict>
 </plist>

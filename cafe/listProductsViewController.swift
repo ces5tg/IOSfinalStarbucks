@@ -54,24 +54,22 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let seleccionado = productos[indexPath.row]
-
-            // Verifica si el producto ya ha sido seleccionado
+        
+        var seleccionado = productos[indexPath.row]
             if !productosSeleccionados.contains(where: { $0.nombre == seleccionado.nombre }) {
-                // El producto no está en la lista, agrégalo
                 self.productosSeleccionados.append(seleccionado)
                 print("\(self.productosSeleccionados)")
                 self.lblCountItems.text = "\(self.productosSeleccionados.count)"
+                seleccionado = Productos()
+                NotificationCenter.default.post(name: .datosActualizados, object: nil, userInfo: ["productos": self.productosSeleccionados])
+                print("Notificación enviada desde PrimerViewController")
                 
-                
-                // Realiza otras acciones después de la selección, si es necesario
             } else {
-                // El producto ya ha sido seleccionado, puedes mostrar un mensaje o realizar otras acciones
-                print("Producto ya seleccionado")
+                print("Producto ya seleccionadoKkkkkkkkkkkkkkkkkkkkk")
+                
             }
         
-        NotificationCenter.default.post(name: .datosActualizados, object: nil, userInfo: ["productos": self.productosSeleccionados])
-        print("Notificación enviada desde PrimerViewController")
+        
         
     }
    
@@ -105,7 +103,6 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         cargarDatos()
         tableView.separatorStyle = .singleLineEtched
         
@@ -114,44 +111,9 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
         
         controlSegmento.addTarget(self, action: #selector(elegirSegmento(_:)), for: .valueChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(borrarSeleccionados(_:)), name: .borrarSeleccionados, object: nil)
-        //        let productosRef = Database.database().reference().child("productos")
-        //                productosRef.observe(.value){(snapshot) in
-        //            let producto = Productos()
-        //
-        //            producto.categoria = (snapshot.value as! NSDictionary)["categoria"] as! String
-        //            producto.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
-        //            producto.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
-        //            producto.precio = (snapshot.value as! NSDictionary)["precio"] as! String
-        //
-        //            self.productos.append(producto)
-        //            self.tableView.reloadData()
-        //                };
-        //
-        //====================================================
-        //        let productosRef = Database.database().reference().child("productos")
-        //        productosRef.observe(.value) { (snapshot) in
-        //            self.productos.removeAll() // Limpiar datos existentes
-        //
-        //
-        //            for child in snapshot.children {
-        //                if let childSnapshot = child as? DataSnapshot,
-        //                   let productoData = childSnapshot.value as? [String: Any] {
-        //                    let producto = Productos()
-        //
-        //                    producto.categoria = productoData["categoria"] as? String ?? ""
-        //                    producto.imagenURL = productoData["imagenURL"] as? String ?? ""
-        //                    producto.nombre = productoData["nombre"] as? String ?? ""
-        //                    producto.precio = productoData["precio"] as? String ?? ""
-        //
-        //                    self.productos.append(producto)
-        //                }
-        //            }
-        //
-        //            // Recargar la tabla después de obtener los datos
-        //            self.tableView.reloadData()
-        //        }
-        //=============================================================
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSeleccionados(_:)), name: .updateSeleccionados, object: nil)
+        
+
     }
     
     
@@ -189,9 +151,12 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
         }
     @objc func borrarSeleccionados(_ notification: Notification) {
         print("borrarSeleccionados ------- ")
-        if let productosSeleccionados = notification.userInfo?["productos"] as? [Productos] {
+        if let seleccionados = notification.userInfo?["productos"] as? [Productos] {
             
-            self.productosSeleccionados = []
+            self.productosSeleccionados = seleccionados
+            print("se ha reseteado correctamente \(self.productosSeleccionados)")
+            tableView.reloadData()
+            
             
             
             // Procesa la lista de productos seleccionados
@@ -200,4 +165,18 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
             // Puedes actualizar la interfaz de usuario o realizar otras acciones según sea necesario
         }
     }
+    
+    @objc func updateSeleccionados(_ notification: Notification) {
+        print("borrarSeleccionados ELIMINAR GAAAAAA ------- ")
+        if let seleccionados = notification.userInfo?["productos"] as? String {
+            
+            print("\(seleccionados) llllllllllllllllllllll")
+            self.productosSeleccionados.removeAll { $0.id == seleccionados}
+            // Procesa la lista de productos seleccionados
+           
+            
+            // Puedes actualizar la interfaz de usuario o realizar otras acciones según sea necesario
+        }
+    }
+    
 }

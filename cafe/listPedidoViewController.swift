@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseDatabase
 extension Notification.Name {
     static let borrarSeleccionados = Notification.Name("borrarSeleccionados")
+    static let updateSeleccionados = Notification.Name("udpateSeleccionados")
 }
 class listPedidoViewController: UIViewController ,UITableViewDataSource , UITableViewDelegate{
     
@@ -62,27 +63,13 @@ class listPedidoViewController: UIViewController ,UITableViewDataSource , UITabl
         self.listaDetalles = []
         self.countPrecio = 0
         lblTotal.text = "\(countPrecio)"
+        
         tableView.reloadData()
         //self.performSegue(withIdentifier: "seguePedidoEnviado", sender: nil)
         print("Notificación enviada desde PrimerViewController")
     }
     var productosSeleccionados2 = [Productos]()//vacio
-    
-//        for detalleProducto in self.listaDetalles {
-//            print("<<<<<<<<<<<<<<<<<")
-//            // Genera un nuevo documento en la colección "pedidos" con un ID automático
-//            let item = ["idProducto": "\(detalleProducto.idProducto)" , "nombre": "\(detalleProducto.nombre)", "precio":detalleProducto.precio , "cantidad": detalleProducto.cantidad, "total":detalleProducto.total] as [String : Any]
-//
-//
-//
-//            print("inicio de database")
-//            Database.database().reference().child("pedidos").child( Auth.auth().currentUser?.uid ?? "").childByAutoId().setValue(item)
-//            print("se inserto")
-//
-//        }
         
-        
-    
     var listaProductos = [Productos]()
     var countPrecio = 0
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -139,6 +126,7 @@ class listPedidoViewController: UIViewController ,UITableViewDataSource , UITabl
             self.listaProductos = productosSeleccionados
             // Procesa la lista de productos seleccionados
             print("Productos seleccionados actualizados:")
+            self.listaDetalles.removeAll()
             for producto in self.listaProductos {
                 let detalle = detalleProductos()
                 
@@ -155,40 +143,47 @@ class listPedidoViewController: UIViewController ,UITableViewDataSource , UITabl
             print("==========================================================")
             print(self.listaDetalles)
             print("==========================================================")
-//            for producto in productosSeleccionados {
-//                print("Nombre: \(producto.nombre), Precio: \(producto.precio)")
-//            }
+
             tableView.reloadData()
-            
-            // Puedes actualizar la interfaz de usuario o realizar otras acciones según sea necesario
+
         }
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-           if editingStyle == .delete{
-               // Elimina el elemento del array
-                listaDetalles.remove(at: indexPath.row)
-               self.countPrecio = 0
-                       // Actualiza la tabla para reflejar los cambios
-               tableView.reloadData()
-               
-               
-              print("has presionado")
-           }
-       }
+        if editingStyle == .delete {
+            // Elimina el elemento del array
+            let seleccionado = listaDetalles[indexPath.row]
+            listaDetalles.remove(at: indexPath.row)
+            self.countPrecio = 0
+            self.lblTotal.text = "0"
+            
+            // Actualiza la tabla para reflejar los cambios
+            tableView.reloadData()
+            
+            // Envia la notificación sin el error de sintaxis
+            NotificationCenter.default.post(name: .updateSeleccionados, object: nil, userInfo: ["productos": seleccionado.idProducto])
+            
+            print("Has presionado")
+        }
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detalleSeleccionado = listaDetalles[indexPath.row]
+        if listaDetalles.count > 0{
+            let detalleSeleccionado = listaDetalles[indexPath.row]
 
-            // Aumenta la cantidad
-            detalleSeleccionado.cantidad += 1
+                // Aumenta la cantidad
+                detalleSeleccionado.cantidad += 1
 
-            // Actualiza el total multiplicando la cantidad por el precio
-            detalleSeleccionado.total = detalleSeleccionado.cantidad * detalleSeleccionado.precio
+                // Actualiza el total multiplicando la cantidad por el precio
+                detalleSeleccionado.total = detalleSeleccionado.cantidad * detalleSeleccionado.precio
 
-            // Actualiza la celda en la interfaz
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        print(" +++++   \(detalleSeleccionado.cantidad)")
-        print(" +++++   \(detalleSeleccionado.precio)")
-        print(" +++++   \(detalleSeleccionado.total)")
-        print(" +++++   \(detalleSeleccionado.nombre)")
+                // Actualiza la celda en la interfaz
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            print(" +++++   \(detalleSeleccionado.cantidad)")
+            print(" +++++   \(detalleSeleccionado.precio)")
+            print(" +++++   \(detalleSeleccionado.total)")
+            print(" +++++   \(detalleSeleccionado.nombre)")
+        }else{
+            print("no hay datos")
+        }
+        
         }
 }

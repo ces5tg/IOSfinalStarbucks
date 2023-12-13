@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		131396712B1FF4D700A55735 /* listLocalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131396702B1FF4D700A55735 /* listLocalesViewController.swift */; };
 		131396732B1FF55900A55735 /* locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131396722B1FF55900A55735 /* locales.swift */; };
+		131CEFCD2B2904C0009F921B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 131CEFCC2B2904C0009F921B /* GoogleService-Info.plist */; };
 		131E92D52B16B3840021E2B8 /* IniciarSesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131E92D42B16B3840021E2B8 /* IniciarSesionViewController.swift */; };
 		131E92D72B16BC990021E2B8 /* infoUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131E92D62B16BC990021E2B8 /* infoUserViewController.swift */; };
 		131E92DC2B16C0BB0021E2B8 /* insertarProductoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131E92DB2B16C0BB0021E2B8 /* insertarProductoViewController.swift */; };
@@ -22,13 +23,13 @@
 		13E8F3892B168AFE005554EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E8F3872B168AFE005554EC /* Main.storyboard */; };
 		13E8F38B2B168B00005554EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E8F38A2B168B00005554EC /* Assets.xcassets */; };
 		13E8F38E2B168B00005554EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E8F38C2B168B00005554EC /* LaunchScreen.storyboard */; };
-		13E8F3982B169B45005554EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13E8F3972B169B45005554EC /* GoogleService-Info.plist */; };
 		B9769F0A14D9DDB26B4109D1 /* Pods_cafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880B6A4065C43864D7D83070 /* Pods_cafe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		131396702B1FF4D700A55735 /* listLocalesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listLocalesViewController.swift; sourceTree = "<group>"; };
 		131396722B1FF55900A55735 /* locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locales.swift; sourceTree = "<group>"; };
+		131CEFCC2B2904C0009F921B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		131E92D42B16B3840021E2B8 /* IniciarSesionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniciarSesionViewController.swift; sourceTree = "<group>"; };
 		131E92D62B16BC990021E2B8 /* infoUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoUserViewController.swift; sourceTree = "<group>"; };
 		131E92DB2B16C0BB0021E2B8 /* insertarProductoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = insertarProductoViewController.swift; path = /Users/cesarpacho/Desktop/cafe/cafe/insertarProductoViewController.swift; sourceTree = "<absolute>"; };
@@ -44,7 +45,6 @@
 		13E8F38A2B168B00005554EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13E8F38D2B168B00005554EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13E8F38F2B168B00005554EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13E8F3972B169B45005554EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		356395D35F0871447CA30652 /* Pods-cafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cafe.debug.xcconfig"; path = "Target Support Files/Pods-cafe/Pods-cafe.debug.xcconfig"; sourceTree = "<group>"; };
 		880B6A4065C43864D7D83070 /* Pods_cafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E0A8B6C50165EA33BD6150 /* Pods-cafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cafe.release.xcconfig"; path = "Target Support Files/Pods-cafe/Pods-cafe.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,9 +97,9 @@
 				131E92D62B16BC990021E2B8 /* infoUserViewController.swift */,
 				131E92D42B16B3840021E2B8 /* IniciarSesionViewController.swift */,
 				13E8F38A2B168B00005554EC /* Assets.xcassets */,
+				131CEFCC2B2904C0009F921B /* GoogleService-Info.plist */,
 				13E8F38C2B168B00005554EC /* LaunchScreen.storyboard */,
 				13E8F38F2B168B00005554EC /* Info.plist */,
-				13E8F3972B169B45005554EC /* GoogleService-Info.plist */,
 			);
 			path = cafe;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13E8F38E2B168B00005554EC /* LaunchScreen.storyboard in Resources */,
-				13E8F3982B169B45005554EC /* GoogleService-Info.plist in Resources */,
+				131CEFCD2B2904C0009F921B /* GoogleService-Info.plist in Resources */,
 				13E8F38B2B168B00005554EC /* Assets.xcassets in Resources */,
 				13E8F3892B168AFE005554EC /* Main.storyboard in Resources */,
 			);
