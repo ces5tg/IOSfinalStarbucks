@@ -12,15 +12,16 @@ class IniciarSesionViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-  
+    @IBOutlet weak var registerSesionTapped: UIButton!
+    
     @IBAction func iniciarSesionTapped(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailTextField.text! , password:passwordTextField.text!){(user , error) in
-            print("intentando iniciar sesion")
+            print("Intentando iniciar sesion")
             if error != nil{
-                print("se presneto el siguiente error \(error)")
+                print("se presento el siguiente error \(error)")
                 self.mostrarAlerta(titulo: "error al iniciar sesion", mensaje: "deseas registrarte ?", accion: "aceptar")
             }else {
-                print("incio de sesion exitoro")
+                print("Incio de sesion exitoso")
                 self.performSegue(withIdentifier: "segueTabBar", sender: nil)
             }
         }
@@ -28,6 +29,7 @@ class IniciarSesionViewController: UIViewController {
 
     }
     override func viewDidLoad() {
+        title = "Iniciar Sesion"
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -45,6 +47,10 @@ class IniciarSesionViewController: UIViewController {
         present(alerta, animated: true, completion: nil)
     }
    
+    @IBAction func RegistrateTapped(_ sender: Any) {
+        // Realizar la transición a la vista asociada a "crearcuentasegue"
+        self.performSegue(withIdentifier: "crearcuentasegue", sender: nil)
+    }
     
 
     /*
