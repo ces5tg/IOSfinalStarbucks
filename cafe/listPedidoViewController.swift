@@ -65,6 +65,7 @@ class listPedidoViewController: UIViewController ,UITableViewDataSource , UITabl
         lblTotal.text = "\(countPrecio)"
         
         tableView.reloadData()
+        self.listaDetalles.removeAll()
         //self.performSegue(withIdentifier: "seguePedidoEnviado", sender: nil)
         print("Notificación enviada desde PrimerViewController")
     }
@@ -122,21 +123,38 @@ class listPedidoViewController: UIViewController ,UITableViewDataSource , UITabl
             NotificationCenter.default.removeObserver(self)
         }
     @objc func datosActualizados(_ notification: Notification) {
+        print("Ç44-44444  esta entrando a datos ACTUALIZADOS  $$$$$$$$$$$$$$$")
         if let productosSeleccionados = notification.userInfo?["productos"] as? [Productos] {
-            self.listaProductos = productosSeleccionados
+//
+//            print("\(productosSeleccionados)")
+//            print("recibido")
+//
+//
+//            let detalle = detalleProductos()
+//            detalle.nombre = productosSeleccionados.nombre
+//            detalle.precio = productosSeleccionados.precio
+//            detalle.cantidad = 1 // Puedes ajustar esto según tus necesidades
+//            detalle.total = 1    // Puedes ajustar esto según tus necesidades
+//            detalle.idProducto = productosSeleccionados.id
+//
+//            self.listaDetalles.append(detalle)
+//            tableView.reloadData()
+//            print("termino dsafdjalñ")
+//
+//            self.listaProductos = productosSeleccionados
             // Procesa la lista de productos seleccionados
-            print("Productos seleccionados actualizados:")
+//            print("Productos seleccionados actualizados:")
             self.listaDetalles.removeAll()
             for producto in self.listaProductos {
                 let detalle = detalleProductos()
-                
+
                 // Asigna valores desde el producto actual
                 detalle.nombre = producto.nombre
                 detalle.precio = producto.precio
                 detalle.cantidad = 1 // Puedes ajustar esto según tus necesidades
                 detalle.total = 1    // Puedes ajustar esto según tus necesidades
                 detalle.idProducto = producto.id
-                 
+
                 // Agrega el detalle a la lista
                 self.listaDetalles.append(detalle)
             }
@@ -147,6 +165,7 @@ class listPedidoViewController: UIViewController ,UITableViewDataSource , UITabl
             tableView.reloadData()
 
         }
+        print("aqui no habia ndad")
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

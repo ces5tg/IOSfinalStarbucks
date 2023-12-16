@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130063612B2E172A0046020D /* pruebaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130063602B2E172A0046020D /* pruebaViewController.swift */; };
+		130063632B2E27EF0046020D /* gratis-png-starbucks-cafe-cafe-logo-starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = 130063622B2E27EF0046020D /* gratis-png-starbucks-cafe-cafe-logo-starbucks.png */; };
+		130063652B2E32FF0046020D /* historialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130063642B2E32FF0046020D /* historialViewController.swift */; };
+		130063672B2E360C0046020D /* historial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130063662B2E360C0046020D /* historial.swift */; };
+		130063692B2E36AD0046020D /* historialDetalles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130063682B2E36AD0046020D /* historialDetalles.swift */; };
 		131396712B1FF4D700A55735 /* listLocalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131396702B1FF4D700A55735 /* listLocalesViewController.swift */; };
 		131396732B1FF55900A55735 /* locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131396722B1FF55900A55735 /* locales.swift */; };
 		131CEFCD2B2904C0009F921B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 131CEFCC2B2904C0009F921B /* GoogleService-Info.plist */; };
@@ -27,6 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		130063602B2E172A0046020D /* pruebaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pruebaViewController.swift; sourceTree = "<group>"; };
+		130063622B2E27EF0046020D /* gratis-png-starbucks-cafe-cafe-logo-starbucks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gratis-png-starbucks-cafe-cafe-logo-starbucks.png"; sourceTree = "<group>"; };
+		130063642B2E32FF0046020D /* historialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historialViewController.swift; sourceTree = "<group>"; };
+		130063662B2E360C0046020D /* historial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historial.swift; sourceTree = "<group>"; };
+		130063682B2E36AD0046020D /* historialDetalles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historialDetalles.swift; sourceTree = "<group>"; };
 		131396702B1FF4D700A55735 /* listLocalesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listLocalesViewController.swift; sourceTree = "<group>"; };
 		131396722B1FF55900A55735 /* locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locales.swift; sourceTree = "<group>"; };
 		131CEFCC2B2904C0009F921B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -83,6 +93,7 @@
 		13E8F3802B168AFE005554EC /* cafe */ = {
 			isa = PBXGroup;
 			children = (
+				130063622B2E27EF0046020D /* gratis-png-starbucks-cafe-cafe-logo-starbucks.png */,
 				131E92DB2B16C0BB0021E2B8 /* insertarProductoViewController.swift */,
 				131396702B1FF4D700A55735 /* listLocalesViewController.swift */,
 				131396722B1FF55900A55735 /* locales.swift */,
@@ -90,6 +101,10 @@
 				13E8F3832B168AFE005554EC /* SceneDelegate.swift */,
 				13E8F3852B168AFE005554EC /* ViewController.swift */,
 				13E8F3872B168AFE005554EC /* Main.storyboard */,
+				130063602B2E172A0046020D /* pruebaViewController.swift */,
+				130063642B2E32FF0046020D /* historialViewController.swift */,
+				130063662B2E360C0046020D /* historial.swift */,
+				130063682B2E36AD0046020D /* historialDetalles.swift */,
 				13898E692B1BD0B900A647AF /* detalleProductos.swift */,
 				13898E612B1A30CE00A647AF /* listProductsViewController.swift */,
 				13898E652B1A523A00A647AF /* listPedidoViewController.swift */,
@@ -184,6 +199,7 @@
 				13E8F38E2B168B00005554EC /* LaunchScreen.storyboard in Resources */,
 				131CEFCD2B2904C0009F921B /* GoogleService-Info.plist in Resources */,
 				13E8F38B2B168B00005554EC /* Assets.xcassets in Resources */,
+				130063632B2E27EF0046020D /* gratis-png-starbucks-cafe-cafe-logo-starbucks.png in Resources */,
 				13E8F3892B168AFE005554EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +253,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				130063652B2E32FF0046020D /* historialViewController.swift in Sources */,
 				13898E662B1A523A00A647AF /* listPedidoViewController.swift in Sources */,
+				130063612B2E172A0046020D /* pruebaViewController.swift in Sources */,
 				131E92D72B16BC990021E2B8 /* infoUserViewController.swift in Sources */,
 				13E8F3862B168AFE005554EC /* ViewController.swift in Sources */,
 				13898E6A2B1BD0B900A647AF /* detalleProductos.swift in Sources */,
@@ -247,8 +265,10 @@
 				13E8F3822B168AFE005554EC /* AppDelegate.swift in Sources */,
 				13898E642B1A322D00A647AF /* Productos.swift in Sources */,
 				131E92DC2B16C0BB0021E2B8 /* insertarProductoViewController.swift in Sources */,
+				130063672B2E360C0046020D /* historial.swift in Sources */,
 				13E8F3842B168AFE005554EC /* SceneDelegate.swift in Sources */,
 				131396732B1FF55900A55735 /* locales.swift in Sources */,
+				130063692B2E36AD0046020D /* historialDetalles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

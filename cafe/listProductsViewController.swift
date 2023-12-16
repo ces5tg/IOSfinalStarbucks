@@ -60,8 +60,11 @@ class listProductsViewController: UIViewController ,UITableViewDataSource , UITa
                 self.productosSeleccionados.append(seleccionado)
                 print("\(self.productosSeleccionados)")
                 self.lblCountItems.text = "\(self.productosSeleccionados.count)"
+                
+                
+                
+                NotificationCenter.default.post(name: .datosActualizados, object: nil, userInfo: ["productos":self.productosSeleccionados])
                 seleccionado = Productos()
-                NotificationCenter.default.post(name: .datosActualizados, object: nil, userInfo: ["productos": self.productosSeleccionados])
                 print("Notificación enviada desde PrimerViewController")
                 
             } else {
